@@ -19,7 +19,7 @@ def show_batch():
 
         # Validasi kolom
         required_columns = ['country', 'page 1 (main category)', 'page 2 (clothing model)',
-                            'colour', 'location', 'model photography', 'page']
+                            'colour', 'location', 'model photography']
         if not all(col in df.columns for col in required_columns):
             st.error(f"❌ Kolom tidak sesuai. Pastikan CSV memiliki kolom berikut:\n{required_columns}")
             return
