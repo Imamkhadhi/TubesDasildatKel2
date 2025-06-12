@@ -25,6 +25,7 @@ def show_batch_regression():
         use_knn = st.checkbox("Use K-Nearest Neighbors (Regresi)")
         use_dt  = st.checkbox("Use Decision Tree (Regresi)")
         use_nn  = st.checkbox("Use Neural Network (Regresi)")
+        use_svm = st.checkbox("Use Support Vector Machine (Regresi)")
 
         if st.button("🔍 Prediksi Harga"):
             if not any([use_knn, use_dt, use_nn]):
@@ -51,6 +52,13 @@ def show_batch_regression():
                 df['NN Price'] = preds
                 st.markdown("### 💰 Hasil Prediksi: Neural Network Regresi")
                 st.dataframe(df[['NN Price']])
+            
+            if use_svm:
+                model = joblib.load("modelJb_SVM_regresi.joblib")
+                preds = model.predict(X)
+                df['SVM Price'] = preds
+                st.markdown("### 💰 Hasil Prediksi: Support Vector Machine Regresi")
+                st.dataframe(df[['SVM Price']])
 
             # Optional download
             # st.download_button("💾 Download Prediksi", df.to_csv(index=False), "prediksi_harga.csv", "text/csv")

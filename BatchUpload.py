@@ -29,12 +29,12 @@ def show_batch():
         # Pilih model
         st.subheader("🤖 Pilih Model")
         use_knn = st.checkbox("Use K-Nearest Neighbors")
-        # use_svm = st.checkbox("Use Support Vector Machine")
-        # use_nn  = st.checkbox("Use Neural Network")
+        use_svm = st.checkbox("Use Support Vector Machine")
+        use_nn  = st.checkbox("Use Neural Network")
         use_dt  = st.checkbox("Use Decision Tree")
 
         if st.button("🔍 Prediksi"):
-            if not any([use_knn, use_dt]):
+            if not any([use_knn, use_dt, use_nn, use_svm]):
                 st.warning("❗ Silakan pilih setidaknya satu model.")
                 return
 
@@ -53,6 +53,22 @@ def show_batch():
                 df['DT Label'] = [label_map.get(p, "Unknown") for p in preds]
                 st.markdown("### ✅ Hasil Prediksi: Decision Tree")
                 st.dataframe(df[['DT Class', 'DT Label']])
+            
+            if use_nn:
+                model = joblib.load("modelJb_NN_klasifikasi.joblib")
+                preds = model.predict(X)
+                df['NN Class'] = preds
+                df['NN Label'] = [label_map.get(p, "Unknown") for p in preds]
+                st.markdown("### ✅ Hasil Prediksi: Neural Network")
+                st.dataframe(df[['NN Class', 'NN Label']])
+            
+            if use_svm:
+                model = joblib.load("modelJb_SVM_klasifikasi.joblib")
+                preds = model.predict(X)
+                df['SVM Class'] = preds
+                df['SVM Label'] = [label_map.get(p, "Unknown") for p in preds]
+                st.markdown("### ✅ Hasil Prediksi: Support Vector Machine")
+                st.dataframe(df[['SVM Class', 'SVM Label']])
 
             # Tambahkan ini kalau ingin simpan hasil
             # st.download_button("💾 Download CSV", df.to_csv(index=False), "predicted_result.csv", "text/csv")
