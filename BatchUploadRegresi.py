@@ -40,7 +40,7 @@ def show_batch_regression():
                 st.dataframe(df[['KNN Price']])
 
             if use_dt:
-                model = joblib.load("modelJb_DecisionTree_rergresi.joblib")
+                model = joblib.load("modelJb_DecisionTree_regresi.joblib")
                 preds = model.predict(X)
                 df['DT Price'] = preds
                 st.markdown("### 💰 Hasil Prediksi: Decision Tree Regresi")

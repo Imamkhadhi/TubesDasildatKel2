@@ -10,10 +10,10 @@ model_nn = joblib.load("modelJb_NN_regresi.joblib")
 
 def predict_and_show(model_name, model, input_data):
     prediction = model.predict(input_data)
-    st.subheader(f"{model_name} Prediction: Rp {prediction[0]:,.2f}")
+    st.subheader(f"{model_name} Prediction: $ {prediction[0]:,.2f}")
 
 def show_single_regression():
-    st.title("🧥 E-Clothe Price Prediction (Regresi)")
+    st.title("🔍 Single Prediction regresi")
 
     st.markdown("### Input Fitur")
     country = st.number_input("Country (code)", min_value=0)

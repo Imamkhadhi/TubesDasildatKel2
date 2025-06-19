@@ -21,7 +21,7 @@ def predict_and_show(model_name, model, input_data):
 
 # ✅ Ganti nama dari `main()` ke `show_single()`
 def show_single():
-    st.header("🔍 Single Prediction")
+    st.header("🔍 Single Prediction klasifikasi")
 
     # Input user untuk 7 fitur
     country = st.number_input("Country (code)", min_value=0)

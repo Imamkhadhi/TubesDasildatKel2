@@ -9,7 +9,7 @@ label_map = {
 }
 
 def show_batch():
-    st.header("📦 Batch Upload - Price Class Prediction")
+    st.header("📦 Batch Upload - Price Class Prediction (klasifikasi)")
 
     uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
 
