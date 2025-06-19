@@ -4,7 +4,7 @@ from SinglePredictionRegresi import show_single_regression
 from BatchUpload import show_batch
 from BatchUploadRegresi import show_batch_regression
 
-st.title("👕 Dataset E-Clothes Dashboard")
+st.title("👕 Dataset E-Clothes Dashboards")
 
 menu = st.sidebar.radio("Choose a mode:", ["Single Prediction (klasifikasi)", "Single Prediction (regresi)", "Batch Upload (klasifikasi)", "Batch Upload (Regresi)"])
 #menu = st.radio("Choose a mode:", ["Single Prediction", "Batch Upload"])
